@@ -7,7 +7,7 @@ from nltk.stem import PorterStemmer
 from collections import Counter
 
 def buscar_articulos(palabras_clave, num_articulos):
-    consulta = scholarly.search_pubs_query(palabras_clave)
+    consulta = scholarly.search_pubs(palabras_clave)
     resultados = scholarly.get_results(consulta, num_page_results=num_articulos)
     art_titulos = [articulo.bib['title'] for articulo in resultados]
     art_textos = []
@@ -47,7 +47,7 @@ if boton_generar:
     ensayo = ""
     for i in range(5):
         palabra = palabras_importantes[i][0]
-        consulta = scholarly.search_pubs_query(palabra)
+        consulta = scholarly.search_pubs(palabra)
         resultado = next(consulta)
         texto = resultado.bib['abstract']
         oraciones = sent_tokenize(texto)
