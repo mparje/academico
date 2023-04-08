@@ -7,8 +7,8 @@ from nltk.stem import PorterStemmer
 from collections import Counter
 
 def buscar_articulos(palabras_clave, num_articulos):
-    consulta = scholarly.search_pubs(palabras_clave)
-    resultados = scholarly.get_results(consulta, num_page_results=num_articulos)
+    search_query = scholarly.search_pubs(palabras_clave)
+    resultados = [next(search_query) for _ in range(num_articulos)]
     art_titulos = [articulo.bib['title'] for articulo in resultados]
     art_textos = []
     for articulo in resultados:
