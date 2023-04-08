@@ -1,3 +1,3 @@
-streamlit
+Streamlit==1.1.0
 Scholarly==3.0.1
-nltk
+NLTK==3.5
